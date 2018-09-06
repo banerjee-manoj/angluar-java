@@ -1,0 +1,65 @@
+<!-- <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+<div id="main">
+  <h2>Sidenav Push Example</h2>
+  <p>Click on the element below to open the side navigation menu, and push this content to the right. Notice that we add a black see-through background-color to body when the sidenav is opened.</p>
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+</div>
+ -->
+ 
+ 
+ 
+
+ 
+ <div class="menu">
+<nav class="navbar navbar-inverse nav-flat" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <!-- <a class="navbar-brand" href="#">WebSiteName</a> -->
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span>   Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customer Management<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a [routerLink]="['/addCustomer']">Add Customer</a></li>
+            <li><a routerLink="showAllCustomer">Show All Customer</a></li>
+            <li><a routerLink="searchCustomer">Search Customer</a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Order Management<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+            <li><a href="#">Manage Order</a></li>
+            <li><a href="#">Order History</a></li>
+            <li><a href="#">Defaulter</a></li>
+            <li><a href="#">Order Details By Date</a></li>
+          </ul>
+        </li>
+        
+        
+      <!--   <li><a href="#">User Management</a></li> -->
+      </ul>
+      <!-- <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul> -->
+    </div>
+  </div>
+</nav>
+ 
+</div>
+ 

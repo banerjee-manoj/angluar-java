@@ -1,0 +1,106 @@
+
+<div allign="center">
+<fieldset class="scheduler-border col-md-12" >
+  <legend class="scheduler-border">Add Customer</legend>
+
+
+
+  
+ <form class="form-horizontal"  (ngSubmit)="saveCustomer()">
+ 
+  
+    <div class="form-group">
+  
+      <label class="control-label col-md-2" style="text-align: right" for="customerName">Customer Name:</label>
+      <div class="col-md-3" style="padding-left: 0px;">
+        <input type="text" class="form-control" 
+        id="customerName" placeholder="Enter Name" name="customerName"
+        [(ngModel)]="customer.customerName" >
+      </div>
+	  
+	  
+	   <label class="control-label col-md-2" style="text-align: right" for="customerMobileNumber">Mobile Number:</label>
+      <div class="col-md-3" style="padding-left: 0px;">          
+        <input type="number" class="form-control" id="customerMobileNumber" 
+        placeholder="Enter Mobile Number" name="customerMobileNumber"
+        [(ngModel)]="customer.customerMobileNumber">
+      </div>
+	  
+    </div>
+  
+    <div class="form-group">
+     
+    </div>
+    <div class="form-group">
+	 <label class="control-label col-md-2" style="text-align: right">Customer Type:</label>
+	 <div class="col-md-3" style="padding-left: 0px;">
+      <select class="form-control col-md-3" id="sel1" name="customerType"
+      [(ngModel)]="customer.customerType">
+        <option>--Select--</option>
+		<option>Regular</option>
+        <option>Catering</option>
+      </select>
+     </div>
+    </div>
+	<div class="form-group">
+	<button type="button" class="btn btn-default btn-xs">
+          <span class="glyphicon glyphicon-plus"></span> </button>
+	
+	
+      <label class="control-label col-md-2" style="text-align: right" 
+      for="customerAddress">Address:</label>
+      <div class="col-md-3" style="padding-left: 0px;">          
+        <input type="text" class="form-control" id="customerAddress" 
+        placeholder="Enter Address" name="address"
+        [(ngModel)]="addressC.address">
+      </div>
+    </div>
+    <!--
+	<div class="form-group">
+      <label class="control-label col-md-2" for="secDeposit" 
+      style="text-align: right">Security Deposit:</label>
+      <div class="col-md-3" style="padding-left: 0px;">          
+        <input type="text" class="form-control" id="secDeposit" 
+        placeholder="Security Deposit" name="securityDeosit" 
+        [(ngModel)]="customer.securityDeosit">
+      </div>
+	  
+     <label class="control-label col-md-2" style="text-align: right" 
+     for="startDate">Start Date:</label>
+     
+ <div class='col-md-3' style="padding-left: 0px;">
+    <input type="date" class="form-control" id="startDate" 
+    [(ngModel)]="customer.startDate" name="startDate"/>
+                   
+                </div>
+      
+    </div>
+	
+	
+	<div class="form-group">
+      <label class="control-label col-md-2"  for="normalJarRate">Normal Jar Rate:</label>
+      <div class="col-md-3" style="padding-left: 0px;">          
+        <input type="number" class="form-control" id="normalJarRate"  
+        name="normalJarRate" [(ngModel)]="customer.normalJarRate">
+      </div>
+	  
+     <label class="control-label col-md-2" style="text-align: right" 
+     for="coldJarRate">Cold Jar Rate:</label>
+      <div class="col-md-3" style="padding-left: 0px;">          
+        <input type="number" class="form-control" id="coldJarRate"
+          name="coldJarRate" [(ngModel)]="customer.coldJarRate">
+      </div>
+	  
+	  
+    </div>-->
+	
+    <div class="form-group">        
+      <div class="col-md-offset-10 col-md-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+		 <button type="reset" class="btn btn-default">Reset</button>
+      </div>
+    </div>
+  </form>
+
+  </fieldset>
+  </div>
