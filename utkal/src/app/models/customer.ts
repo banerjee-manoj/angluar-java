@@ -6,10 +6,13 @@ export class Customer {
     customerMobileNumber : String;
     customerType : String;
   //  address : String;
-  //  securityDeosit : String;
-  //  normalJarRate : String;
-  //  coldJarRate : String;
-  //  startDate : String;
+  securityDeposit : String;
+  returnSecurityDeposit : String;
+    normalJarRate : String;
+    coldJarRate : String;
+    activattionDate : String;
+    deActivattionDate : String;
+    active : String = 'true';
     customerAddressLst : Address[];
 
 }

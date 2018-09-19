@@ -3,82 +3,26 @@
     <fieldset class="scheduler-border col-sm-12" >
       <legend class="scheduler-border">Show All Customer</legend>
      <form class="form-horizontal" action="/action_page.php">
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="customerName">Customer Name:</label>
-          <div class="col-sm-2">
-            <input type="text" class="form-control" id="customerName" placeholder="Enter email" name="customerName">
-          </div>
-        
-        
-         <label class="control-label col-sm-2" for="customerMobileNumber">Mobile Number:</label>
-          <div class="col-sm-2">          
-            <input type="number" class="form-control" id="customerMobileNumber" placeholder="Enter Mobile Number" name="customerMobileNumber">
-          </div>
-        
-        </div>
-        <div class="form-group">
-         
-        </div>
-        <div class="form-group">
-       <label class="control-label col-sm-2">Customer Type:</label>
-       <div class="col-sm-2">
-          <select class="form-control col-sm-2" id="sel1">
-            <option>--Select--</option>
-        <option>Regular</option>
-            <option>Catering</option>
-          </select>
-         </div>
-        </div>
-      <div class="form-group">
-      <button type="button" class="btn btn-default btn-xs">
-              <span class="glyphicon glyphicon-plus"></span> </button>
-      
-      
-          <label class="control-label col-sm-2" for="customerMobileNumber">Address:</label>
-          <div class="col-sm-2">          
-            <input type="text" class="form-control" id="customerMobileNumber" placeholder="Enter Address" name="customerMobileNumber">
-          </div>
-        </div>
-      <div class="form-group">
-          <label class="control-label col-sm-2" for="customerMobileNumber">Security Deposit:</label>
-          <div class="col-sm-2">          
-            <input type="text" class="form-control" id="customerMobileNumber" placeholder="Security Deposit" name="customerMobileNumber">
-          </div>
-        
-         <label class="control-label col-sm-2" for="customerMobileNumber">Start Date:</label>
-         
-     <div class='input-group date col-sm-2' id='datetimepicker1'>
-        <input type="date" class="form-control col-sm-2" />
-                        <!--<input type='text' class="form-control" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>-->
-                    </div>
-          
-        </div>
-      
-      
-      <div class="form-group">
-          <label class="control-label col-sm-2" for="customerMobileNumber">Normal Jar Rate:</label>
-          <div class="col-sm-2">          
-            <input type="number" class="form-control" id="customerMobileNumber"  name="customerMobileNumber">
-          </div>
-        
-         <label class="control-label col-sm-2" for="customerMobileNumber">Cold Jar Rate:</label>
-          <div class="col-sm-2">          
-            <input type="number" class="form-control" id="customerMobileNumber"  name="customerMobileNumber">
-          </div>
-        
-        
-        </div>
-      
+       
         <div class="form-group">        
-          <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-primary">Submit</button>
-         <button type="reset" class="btn btn-default">Cancel</button>
+          <div class="col-md-offset-9 col-md-12">
+            <button type="submit" (click)="getAllCustomer()" class="btn btn-primary">Show All Customer</button>
+         
           </div>
         </div>
       </form>
+      <table class="table  table-bordered nowrap">
+        <th>Customer Name</th>
+        <th>Mobile Number</th>
+        <th>Action</th>
+       <tr *ngFor="let customer of customerList">
+         <td>{{customer.customerName}}</td>
+        <td>{{customer.customerMobileNumber}}</td>
+        <td><button class="btn btn-xs btn-primary">De-activate</button>
+        <button class="btn btn-xs btn-primary">Details</button></td>
+        </tr>
+
+      </table>
     
       </fieldset>
       </div>

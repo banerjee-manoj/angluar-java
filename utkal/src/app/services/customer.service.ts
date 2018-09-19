@@ -32,5 +32,9 @@ customer);
      get("http://localhost:8081/getAllCustomer");
    }
 
+   getAllUser(){
+    return this.http.
+    get("http://localhost:8081/getAllCustomer");
+   }
 
 }

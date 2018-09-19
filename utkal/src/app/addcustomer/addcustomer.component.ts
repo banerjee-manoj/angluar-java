@@ -23,13 +23,13 @@ export class AddcustomerComponent implements OnInit {
  constructor(public customerService : CustomerService) {
     this.customer = new Customer();
    this.addressC = new Address();
-    this.addressC.address="object address";
+    this.addressC.address="";
     this.address.push(this.addressC);
     this.customer.customerAddressLst=this.address;
     console.log(this.customer.customerAddressLst);
-  this.customer.customerName="Manoj Banerjee";
-  this.customer.customerMobileNumber="8017990706";
-  this.customer.customerType="Regular";
+  //this.customer.customerName="Manoj Banerjee";
+  //this.customer.customerMobileNumber="8017990706";
+ // this.customer.customerType="Regular";
  // this.customer.address="Rajarhat";
  // this.customer.normalJarRate="100";
  // this.customer.coldJarRate="120";

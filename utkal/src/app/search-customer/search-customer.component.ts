@@ -6,14 +6,7 @@ import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
 import {NgbTypeahead}  from '@ng-bootstrap/ng-bootstrap';
 import {CustomerService} from '../services/customer.service';
 import { Customer} from '../models/customer';
-const states1 = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
-'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
-'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine',
-'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana',
-'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island',
-'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Islands', 'Virginia',
-'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+
 
 
 @Component({
@@ -24,41 +17,89 @@ const states1 = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', '
 })
 export class SearchCustomerComponent implements OnInit {
   
-  states : String[]=[];
+  customeNames : String[]=[];
   customerList : Customer[];
-
+  customerObj : Customer = new Customer();
+  showSelected : boolean;
+  //search : any;
   ngOnInit(){
    
   }
 
 constructor(public customerService : CustomerService){
+  this.showSelected =false;
   customerService.getUser().subscribe(
     (  data => {
-      
    this.customerList = JSON.parse(data.text());
    this.customerList.forEach(obj => {
-   this.states.push(obj.customerName);
+   this.customeNames.push(obj.customerName);
    });
     }),(error =>{console.log("Error.. occurred...");
 })
-    );;
+    );
+}
+
+ 
+
+public customer: any;
+
+search = (text$: Observable<string>) =>
+text$.pipe(  
+  map(term => term.length < 1 ? []
+    : this.customeNames.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+);
+
+
+  getCustomerDetails(){
+
+    console.log("get customer details");
+  this.customerObj  = this.customerList.find(x => x.customerName==this.customer);
+ 
+ this.showSelected =true;
 }
 
   
+updateCustomer(){
+console.log(this.customerObj);
+  this.customerService.saveCustomer(this.customerObj).subscribe(
+    (  data => { 
+      
+    this.customer = JSON.parse(data.text());
+    this.customerService.getUser().subscribe(
+      (  data => {
+        
+     this.customerList = JSON.parse(data.text());
+     this.customerList.forEach(obj => {
+     this.customeNames.push(obj.customerName);
+     
+     });
+      }),(error =>{console.log("Error.. occurred...");
+  })
+      );;
+    
+    }),(error =>{console.log("Error.. occurred...");
+})
+    );    
+   
+    
+}
+    
+    
+deactivateCustomer(){
+  this.customerObj.active="false";
+ alert(this.customerObj.active);
+ this.updateCustomer();
+}
 
-public model: any;
-  search = (text$: Observable<string>) =>
+populateSearchBox(){
+  this.search = (text$: Observable<string>) =>
   text$.pipe(
     debounceTime(200),
     distinctUntilChanged(),
     map(term => term.length < 1 ? []
-      : this.states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
-  )
-
-  
-  
-    
-    
+      : this.customeNames.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+  );
+}
 
 
 }
